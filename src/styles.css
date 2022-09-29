@@ -60,6 +60,16 @@ footer {
   font-size: 12px;
 }
 
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+  background-color: rgba(255, 255, 255, 0.507);
+  box-shadow: 10px 10px 52px -18px rgba(0, 0, 0, 0.33);
+  -webkit-box-shadow: 10px 10px 52px -18px rgba(0, 0, 0, 0.33);
+  -moz-box-shadow: 10px 10px 52px -18px rgba(0, 0, 0, 0.33);
+}
+
 .container {
   border-radius: 10px;
   padding: 10px;
