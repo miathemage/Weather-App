@@ -16,6 +16,19 @@ let currentMinutes = ("0" + date.getMinutes()).slice(-2);
 let h6 = document.querySelector("h6");
 h6.innerHTML = `${currentDay} ${currentHours}:${currentMinutes}`;
 
+function defaultTemp(response) {
+  console.log(response.data);
+  let defaultTemperature = document.querySelector("#current-degree");
+  let defaultCity = document.querySelector("#current-city");
+  defaultTemperature.innerHTML = Math.round(response.data.main.temp);
+  defaultCity.innerHTML = city;
+}
+
+let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
+let city = "Mexico City";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(defaultTemp);
+
 function searchCity(city) {
   let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -30,7 +43,6 @@ function search(event) {
 
 function displayCurrentWeather(response) {
   console.log(response.data);
-  let currentCity = document.querySelector("#current-city");
   document.querySelector("#current-city").innerHTML = response.data.name;
   let degreeNumber = Math.round(response.data.main.temp);
   let humidNumber = Math.round(response.data.main.humidity);
@@ -38,6 +50,12 @@ function displayCurrentWeather(response) {
   document.querySelector("#current-degree").innerHTML = `${degreeNumber}`;
   document.querySelector("#current-humidity").innerHTML = `${humidNumber}%`;
   document.querySelector("#current-wind").innerHTML = `${windNumber} km/h`;
+  let iconWeather = document.querySelector("#icon");
+  iconWeather.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconWeather.setAttribute("alt", response.data.weather[0].description);
 }
 
 let searchForm = document.querySelector("#search-form");
