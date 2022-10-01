@@ -55,6 +55,10 @@ li {
   height: 19px;
 }
 
+div.daily-forecast {
+  text-align: center;
+}
+
 footer {
   text-align: center;
   font-size: 12px;
@@ -64,10 +68,16 @@ footer {
   margin: 0 auto; /* Added */
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
-  background-color: rgba(255, 255, 255, 0.849);
+  border-radius: 50px;
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.171);
   box-shadow: 10px 10px 52px -18px rgba(0, 0, 0, 0.33);
   -webkit-box-shadow: 10px 10px 52px -18px rgba(0, 0, 0, 0.33);
   -moz-box-shadow: 10px 10px 52px -18px rgba(0, 0, 0, 0.33);
+}
+
+.card-body .unit {
+  color: #a08ed6;
 }
 
 .container {
@@ -111,6 +121,7 @@ footer {
 
 .unit:hover {
   color: #22223b;
+  text-decoration: underline;
 }
 
 .current-icon {
@@ -163,8 +174,6 @@ footer {
   background-color: transparent;
   margin: 10px;
   padding: 0;
-  border: 0.5px solid #a08ed6;
-  border-radius: 10px;
 }
 
 .week-emoji {
